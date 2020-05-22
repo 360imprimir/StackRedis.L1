@@ -43,8 +43,8 @@ namespace StackRedis.L1.MemoryCache.Types
             //Box into object so that we can set properties on the same instance
             object oResult = result;
 
-            result.GetType().GetField("expiry", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(oResult, expiry);
-            result.GetType().GetField("value", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(oResult, value);
+            result.GetType().GetField("<Expiry>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(oResult, expiry);
+            result.GetType().GetField("<Value>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(oResult, value);
 
             //Unbox back to struct
             result = (RedisValueWithExpiry)oResult;
